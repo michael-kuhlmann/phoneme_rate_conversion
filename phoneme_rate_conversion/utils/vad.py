@@ -25,7 +25,7 @@ class WebRTCVAD(pt.Configurable):
         self.padding_duration = int(
             self.sample_rate * self.padding_duration_in_ms / 1000)
 
-    def __call__(self, signal) -> ArrayInterval:
+    def __call__(self, signal: np.ndarray) -> ArrayInterval:
         shape = signal.shape
         if signal.ndim <= 2:
             if signal.ndim == 2 and shape[self.axis % signal.ndim - 1] != 1:
