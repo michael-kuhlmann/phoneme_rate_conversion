@@ -1,0 +1,6 @@
+.venv
+.idea
+*.json
+*.DS_STORE
+*pretrained
+*.tar.gz
