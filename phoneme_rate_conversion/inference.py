@@ -16,9 +16,6 @@ from .modules.time_scaling import WSOLA
 from .utils.vad import WebRTCVAD
 
 
-# TODO: Readme
-
-
 class _Converter(pt.Configurable, abc.ABC):
     sample_rate: int
     time_scale_fn: callable
