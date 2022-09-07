@@ -19,7 +19,7 @@ We provide a training script to train a local phoneme rate estimator from forced
 1. Prepare the following environment variables:
    - `$DB_ROOT`: Points to the path where the LibriSpeech corpus and alignments will be stored
     - `$STORAGE_ROOT`: Points to the path where the trained models will be stored
-2. Download [LibriSpeech](https://www.openslr.org/12/) to `$DB_ROOT`
+2. Download the [LibriSpeech](https://www.openslr.org/12/) subsets to `$DB_ROOT/LibriSpeech`
 3. Download [librispeech.json](https://uni-paderborn.sciebo.de/s/f6xCGx1R4lXO24c) and put it under `jsons`
 4. Download [librispeech_phone_ali](https://uni-paderborn.sciebo.de/s/f6xCGx1R4lXO24c) to `$DB_ROOT`
     - We used the [Montreal Forced Aligner (MFA)](https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner) to 
@@ -46,12 +46,13 @@ We provide a [pretrained model](https://uni-paderborn.sciebo.de/s/f6xCGx1R4lXO24
 Timit and showed good generalization.
 
 ## Inference
-During inference, we can perform a speaking rate conversion between two audios without requiring any text labels.
+During inference, we can perform speaking rate conversion between two audios without requiring any text labels.
 
 ```python
 from phoneme_rate_conversion.inference import SpeakingRateConverter
 from scipy.io import wavfile
-converter = SpeakingRateConverter.from_config(SpeakingRateConverter.get_config(dict(model_dir='pretrained/')))
+converter = SpeakingRateConverter.from_config(
+   SpeakingRateConverter.get_config(dict(model_dir='pretrained/')))
 c_sample_rate, content_wav = wavfile.read('/path/to/content/wav')
 s_sample_rate, style_wav = wavfile.read('/path/to/style/wav')
 assert c_sample_rate == s_sample_rate
