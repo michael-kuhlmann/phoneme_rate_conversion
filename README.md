@@ -2,6 +2,7 @@
 
 **Perform any-2-any speaking rate conversion**
 
+Paper: [https://arxiv.org/abs/2209.01978](https://arxiv.org/abs/2209.01978)  
 Demo: [go.upb.de/interspeech2022](https://groups.uni-paderborn.de/nt/interspeech2022_vc/index.html)
 
 ## Installation
@@ -71,7 +72,7 @@ converter = prc.inference.SpeakingRateConverter(
 To deactivate the VAD, pass `vad=None`.
 
 ## Unsupervised Phoneme Segmentation (Scenario 2)
-In our paper, we also proposed a completely unsupervised approach based on [unsupervised phoneme segmentation](https://github.com/felixkreuk/UnsupSeg).
+In our [paper](https://arxiv.org/abs/2209.01978), we also proposed a completely unsupervised approach based on [unsupervised phoneme segmentation](https://github.com/felixkreuk/UnsupSeg).
 We slightly modified the code to work with this repository:
 ```bash
 git clone https://github.com/michael-kuhlmann/UnsupSeg.git
